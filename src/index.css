@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+/* Ensure the text is centered */
+.amplify-flex .amplify-liveness-toast__message {
+    @apply text-center text-2xl font-bold text-gray-800;
+}
