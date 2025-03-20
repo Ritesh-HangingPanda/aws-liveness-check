@@ -1,0 +1,56 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-reactamplified-dev-09a8f-authRole",
+      "UnauthRoleArn": "arn:aws:iam::420570638071:role/amplify-reactamplified-dev-09a8f-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::420570638071:role/amplify-reactamplified-dev-09a8f-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-reactamplified-dev-09a8f-deployment",
+      "UnauthRoleName": "amplify-reactamplified-dev-09a8f-unauthRole",
+      "StackName": "amplify-reactamplified-dev-09a8f",
+      "StackId": "arn:aws:cloudformation:us-east-1:420570638071:stack/amplify-reactamplified-dev-09a8f/31b21690-f43a-11ef-a944-0e42d1d46801",
+      "AmplifyAppId": "dxc6rz0yvceib"
+    }
+  },
+  "auth": {
+    "reactamplified8dd26acf8dd26acf": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-reactamplified-dev-09a8f-deployment/amplify-cfn-templates/auth/reactamplified8dd26acf8dd26acf-cloudformation-template.json",
+        "logicalId": "authreactamplified8dd26acf8dd26acf"
+      },
+      "lastPushTimeStamp": "2025-02-26T12:23:29.459Z",
+      "output": {
+        "UserPoolId": "us-east-1_VhSFlOHeF",
+        "AppClientIDWeb": "4rjaeq5k7qoeb8i6jbteukefqn",
+        "AppClientID": "2032cvt1vb3ikn28bm84fv9uvo",
+        "IdentityPoolId": "us-east-1:990a560d-fb3e-4e63-bd39-a468353c0ff9",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:420570638071:userpool/us-east-1_VhSFlOHeF",
+        "IdentityPoolName": "reactamplified8dd26acf_identitypool_8dd26acf__dev",
+        "UserPoolName": "reactamplified8dd26acf_userpool_8dd26acf"
+      },
+      "lastPushDirHash": "qLndhrC6nPT4wCNB+UKmqEXz4J8="
+    }
+  }
+}
