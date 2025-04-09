@@ -58,7 +58,7 @@ export default function App() {
       const response = await getLivenessSessionResults(sessionId as string);
       const data = JSON.parse(response.body);
       const confidence = data?.result?.Confidence || 0;
-      const isLive = confidence > 0.9;
+      const isLive = confidence > 75;
 
       const imageBytes = data?.result?.ReferenceImage?.Bytes;
       let imageBase64 = null;
@@ -78,7 +78,7 @@ export default function App() {
         };
         reader.readAsDataURL(blob);
       } else {
-        // Send response to React Native WebView
+        // Send response to React Native WebView 
         if (window.ReactNativeWebView) {
           window.ReactNativeWebView.postMessage(
             JSON.stringify({ isLive, confidence, imageBase64: null })
@@ -121,7 +121,15 @@ export default function App() {
         ) : (
           <>
             {!verificationComplete && !userCancelled && (
-              <div className="w-full flex justify-center">
+              <div className="w-full flex flex-col items-center">
+                <Alert
+                  variation="info"
+                  isDismissible={false}
+                  hasIcon={true}
+                  className="mb-4 !bg-transparent text-yellow-800 border-yellow-300 max-w-xl !text-xs"
+                >
+                  Keep your face visible and in good light.
+                </Alert>
                 <FaceLivenessDetector
                   key={sessionId}
                   sessionId={sessionId || ""}
