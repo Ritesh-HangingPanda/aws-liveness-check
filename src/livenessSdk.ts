@@ -1,4 +1,7 @@
-import { CreateFaceLivenessSessionCommand, GetFaceLivenessSessionResultsCommand } from "@aws-sdk/client-rekognition";
+import {
+  CreateFaceLivenessSessionCommand,
+  GetFaceLivenessSessionResultsCommand,
+} from "@aws-sdk/client-rekognition";
 import rekognitionClient from "./rekognitionClient";
 
 export const createLivenessSession = async () => {
@@ -17,9 +20,9 @@ export const createLivenessSession = async () => {
     };
   } catch (error) {
     console.error("Failed to create liveness session", error);
-    return { 
-      statusCode: 500, 
-      body: JSON.stringify({ error: (error as Error).message })
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: (error as Error).message }),
     };
   }
 };
@@ -40,9 +43,9 @@ export const getLivenessSessionResults = async (sessionId: string) => {
     };
   } catch (error) {
     console.error("Failed to get liveness session results", error);
-    return { 
-      statusCode: 500, 
-      body: JSON.stringify({ error: (error as Error).message })
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: (error as Error).message }),
     };
   }
 };
