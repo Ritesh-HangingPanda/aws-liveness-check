@@ -1,19 +1,19 @@
 {
   "providers": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-reactamplified-dev-09a8f-authRole",
-      "UnauthRoleArn": "arn:aws:iam::420570638071:role/amplify-reactamplified-dev-09a8f-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::420570638071:role/amplify-reactamplified-dev-09a8f-authRole",
+      "AuthRoleName": "amplify-awslivenesscheck-dev-899e7-authRole",
+      "UnauthRoleArn": "arn:aws:iam::544917027035:role/amplify-awslivenesscheck-dev-899e7-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::544917027035:role/amplify-awslivenesscheck-dev-899e7-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-reactamplified-dev-09a8f-deployment",
-      "UnauthRoleName": "amplify-reactamplified-dev-09a8f-unauthRole",
-      "StackName": "amplify-reactamplified-dev-09a8f",
-      "StackId": "arn:aws:cloudformation:us-east-1:420570638071:stack/amplify-reactamplified-dev-09a8f/31b21690-f43a-11ef-a944-0e42d1d46801",
-      "AmplifyAppId": "dxc6rz0yvceib"
+      "DeploymentBucketName": "amplify-awslivenesscheck-dev-899e7-deployment",
+      "UnauthRoleName": "amplify-awslivenesscheck-dev-899e7-unauthRole",
+      "StackName": "amplify-awslivenesscheck-dev-899e7",
+      "StackId": "arn:aws:cloudformation:us-east-1:544917027035:stack/amplify-awslivenesscheck-dev-899e7/27f07430-3b8e-11f0-8d39-0e3d474ca71b",
+      "AmplifyAppId": "d18x2zgw1ui0xb"
     }
   },
   "auth": {
-    "reactamplified8dd26acf8dd26acf": {
+    "awslivenesscheckc4059336": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
@@ -37,20 +37,20 @@
         ]
       },
       "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-reactamplified-dev-09a8f-deployment/amplify-cfn-templates/auth/reactamplified8dd26acf8dd26acf-cloudformation-template.json",
-        "logicalId": "authreactamplified8dd26acf8dd26acf"
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-awslivenesscheck-dev-899e7-deployment/amplify-cfn-templates/auth/awslivenesscheckc4059336-cloudformation-template.json",
+        "logicalId": "authawslivenesscheckc4059336"
       },
-      "lastPushTimeStamp": "2025-02-26T12:23:29.459Z",
+      "lastPushTimeStamp": "2025-05-28T06:57:21.174Z",
       "output": {
-        "UserPoolId": "us-east-1_VhSFlOHeF",
-        "AppClientIDWeb": "4rjaeq5k7qoeb8i6jbteukefqn",
-        "AppClientID": "2032cvt1vb3ikn28bm84fv9uvo",
-        "IdentityPoolId": "us-east-1:990a560d-fb3e-4e63-bd39-a468353c0ff9",
-        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:420570638071:userpool/us-east-1_VhSFlOHeF",
-        "IdentityPoolName": "reactamplified8dd26acf_identitypool_8dd26acf__dev",
-        "UserPoolName": "reactamplified8dd26acf_userpool_8dd26acf"
+        "UserPoolId": "us-east-1_s6UpF9ruz",
+        "AppClientIDWeb": "brljdpo23f7tb8tjpp6ee7tgo",
+        "AppClientID": "6vq1d07gqtehgujm9hkf258jcu",
+        "IdentityPoolId": "us-east-1:01a36d82-ea11-41a9-a6c0-69511dda034e",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:544917027035:userpool/us-east-1_s6UpF9ruz",
+        "IdentityPoolName": "awslivenesscheckc4059336_identitypool_c4059336__dev",
+        "UserPoolName": "awslivenesscheckc4059336_userpool_c4059336"
       },
-      "lastPushDirHash": "qLndhrC6nPT4wCNB+UKmqEXz4J8="
+      "lastPushDirHash": "jbzAWZXMxmN4R0DGFnkk5J/mB9Q="
     }
   }
 }

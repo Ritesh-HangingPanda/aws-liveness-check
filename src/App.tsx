@@ -78,7 +78,7 @@ export default function App() {
         };
         reader.readAsDataURL(blob);
       } else {
-        // Send response to React Native WebView 
+        // Send response to React Native WebView
         if (window.ReactNativeWebView) {
           window.ReactNativeWebView.postMessage(
             JSON.stringify({ isLive, confidence, imageBase64: null })

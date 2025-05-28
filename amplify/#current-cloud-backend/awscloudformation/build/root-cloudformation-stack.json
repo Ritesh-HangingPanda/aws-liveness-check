@@ -199,15 +199,15 @@
         }
       }
     },
-    "authreactamplified8dd26acf8dd26acf": {
+    "authawslivenesscheckc4059336": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-reactamplified-dev-09a8f-deployment/amplify-cfn-templates/auth/reactamplified8dd26acf8dd26acf-cloudformation-template.json",
+        "TemplateURL": "https://s3.amazonaws.com/amplify-awslivenesscheck-dev-899e7-deployment/amplify-cfn-templates/auth/awslivenesscheckc4059336-cloudformation-template.json",
         "Parameters": {
-          "identityPoolName": "reactamplified8dd26acf_identitypool_8dd26acf",
-          "allowUnauthenticatedIdentities": true,
-          "resourceNameTruncated": "reacta8dd26acf",
-          "userPoolName": "reactamplified8dd26acf_userpool_8dd26acf",
+          "identityPoolName": "awslivenesscheckc4059336_identitypool_c4059336",
+          "allowUnauthenticatedIdentities": false,
+          "resourceNameTruncated": "awslivc4059336",
+          "userPoolName": "awslivenesscheckc4059336_userpool_c4059336",
           "autoVerifiedAttributes": "email",
           "mfaConfiguration": "OFF",
           "mfaTypes": "SMS Text Message",
@@ -224,17 +224,12 @@
           "userpoolClientRefreshTokenValidity": 30,
           "userpoolClientWriteAttributes": "email",
           "userpoolClientReadAttributes": "email",
-          "userpoolClientLambdaRole": "reacta8dd26acf_userpoolclient_lambda_role",
+          "userpoolClientLambdaRole": "awslivc4059336_userpoolclient_lambda_role",
           "userpoolClientSetAttributes": false,
-          "sharedId": "8dd26acf",
-          "resourceName": "reactamplified8dd26acf8dd26acf",
+          "sharedId": "c4059336",
+          "resourceName": "awslivenesscheckc4059336",
           "authSelections": "identityPoolAndUserPool",
-          "useDefault": "manual",
-          "thirdPartyAuth": false,
-          "userPoolGroups": false,
-          "adminQueries": false,
-          "triggers": "{}",
-          "hostedUI": false,
+          "useDefault": "default",
           "userPoolGroupList": "",
           "serviceName": "Cognito",
           "usernameCaseSensitive": false,
@@ -261,7 +256,7 @@
       "DependsOn": [
         "AuthRole",
         "UnauthRole",
-        "authreactamplified8dd26acf8dd26acf"
+        "authawslivenesscheckc4059336"
       ],
       "Type": "AWS::Lambda::Function",
       "Properties": {
@@ -347,7 +342,7 @@
           }
         },
         "Handler": "index.handler",
-        "Runtime": "nodejs18.x",
+        "Runtime": "nodejs22.x",
         "Timeout": 300,
         "Role": {
           "Fn::GetAtt": [
@@ -371,7 +366,7 @@
         },
         "idpId": {
           "Fn::GetAtt": [
-            "authreactamplified8dd26acf8dd26acf",
+            "authawslivenesscheckc4059336",
             "Outputs.IdentityPoolId"
           ]
         },
