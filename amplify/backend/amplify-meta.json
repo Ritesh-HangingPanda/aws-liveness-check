@@ -1,19 +1,19 @@
 {
   "providers": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-reactamplified-dev-09a8f-authRole",
-      "UnauthRoleArn": "arn:aws:iam::420570638071:role/amplify-reactamplified-dev-09a8f-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::420570638071:role/amplify-reactamplified-dev-09a8f-authRole",
+      "AuthRoleName": "amplify-smartattendanceaws-dev-8a7af-authRole",
+      "UnauthRoleArn": "arn:aws:iam::420570638071:role/amplify-smartattendanceaws-dev-8a7af-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::420570638071:role/amplify-smartattendanceaws-dev-8a7af-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-reactamplified-dev-09a8f-deployment",
-      "UnauthRoleName": "amplify-reactamplified-dev-09a8f-unauthRole",
-      "StackName": "amplify-reactamplified-dev-09a8f",
-      "StackId": "arn:aws:cloudformation:us-east-1:420570638071:stack/amplify-reactamplified-dev-09a8f/31b21690-f43a-11ef-a944-0e42d1d46801",
-      "AmplifyAppId": "dxc6rz0yvceib"
+      "DeploymentBucketName": "amplify-smartattendanceaws-dev-8a7af-deployment",
+      "UnauthRoleName": "amplify-smartattendanceaws-dev-8a7af-unauthRole",
+      "StackName": "amplify-smartattendanceaws-dev-8a7af",
+      "StackId": "arn:aws:cloudformation:us-east-1:420570638071:stack/amplify-smartattendanceaws-dev-8a7af/21e5da20-55a2-11f0-ac9a-0eaa2770feb3",
+      "AmplifyAppId": "df8y5w5oy6dmi"
     }
   },
   "auth": {
-    "reactamplified8dd26acf8dd26acf": {
+    "smartattendanceaws9a6e8819": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
@@ -37,20 +37,20 @@
         ]
       },
       "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-reactamplified-dev-09a8f-deployment/amplify-cfn-templates/auth/reactamplified8dd26acf8dd26acf-cloudformation-template.json",
-        "logicalId": "authreactamplified8dd26acf8dd26acf"
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-smartattendanceaws-dev-8a7af-deployment/amplify-cfn-templates/auth/smartattendanceaws9a6e8819-cloudformation-template.json",
+        "logicalId": "authsmartattendanceaws9a6e8819"
       },
-      "lastPushTimeStamp": "2025-02-26T12:23:29.459Z",
+      "lastPushTimeStamp": "2025-06-30T12:10:52.228Z",
       "output": {
-        "UserPoolId": "us-east-1_VhSFlOHeF",
-        "AppClientIDWeb": "4rjaeq5k7qoeb8i6jbteukefqn",
-        "AppClientID": "2032cvt1vb3ikn28bm84fv9uvo",
-        "IdentityPoolId": "us-east-1:990a560d-fb3e-4e63-bd39-a468353c0ff9",
-        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:420570638071:userpool/us-east-1_VhSFlOHeF",
-        "IdentityPoolName": "reactamplified8dd26acf_identitypool_8dd26acf__dev",
-        "UserPoolName": "reactamplified8dd26acf_userpool_8dd26acf"
+        "UserPoolId": "us-east-1_CFAoyTt3h",
+        "AppClientIDWeb": "3q2kthu2h3u9ivfi40jtmshq53",
+        "AppClientID": "7hacsthfhrhg8rsgmfta3kipu",
+        "IdentityPoolId": "us-east-1:095d3f44-188a-4f78-b5e6-8631747bc1b6",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:420570638071:userpool/us-east-1_CFAoyTt3h",
+        "IdentityPoolName": "smartattendanceaws9a6e8819_identitypool_9a6e8819__dev",
+        "UserPoolName": "smartattendanceaws9a6e8819_userpool_9a6e8819"
       },
-      "lastPushDirHash": "qLndhrC6nPT4wCNB+UKmqEXz4J8="
+      "lastPushDirHash": "VDy61+gh4HGh8FIsiDCYyUBlgv4="
     }
   }
 }

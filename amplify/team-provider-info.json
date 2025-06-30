@@ -1,19 +1,19 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-reactamplified-dev-09a8f-authRole",
-      "UnauthRoleArn": "arn:aws:iam::420570638071:role/amplify-reactamplified-dev-09a8f-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::420570638071:role/amplify-reactamplified-dev-09a8f-authRole",
+      "AuthRoleName": "amplify-smartattendanceaws-dev-8a7af-authRole",
+      "UnauthRoleArn": "arn:aws:iam::420570638071:role/amplify-smartattendanceaws-dev-8a7af-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::420570638071:role/amplify-smartattendanceaws-dev-8a7af-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-reactamplified-dev-09a8f-deployment",
-      "UnauthRoleName": "amplify-reactamplified-dev-09a8f-unauthRole",
-      "StackName": "amplify-reactamplified-dev-09a8f",
-      "StackId": "arn:aws:cloudformation:us-east-1:420570638071:stack/amplify-reactamplified-dev-09a8f/31b21690-f43a-11ef-a944-0e42d1d46801",
-      "AmplifyAppId": "dxc6rz0yvceib"
+      "DeploymentBucketName": "amplify-smartattendanceaws-dev-8a7af-deployment",
+      "UnauthRoleName": "amplify-smartattendanceaws-dev-8a7af-unauthRole",
+      "StackName": "amplify-smartattendanceaws-dev-8a7af",
+      "StackId": "arn:aws:cloudformation:us-east-1:420570638071:stack/amplify-smartattendanceaws-dev-8a7af/21e5da20-55a2-11f0-ac9a-0eaa2770feb3",
+      "AmplifyAppId": "df8y5w5oy6dmi"
     },
     "categories": {
       "auth": {
-        "reactamplified8dd26acf8dd26acf": {}
+        "smartattendanceaws9a6e8819": {}
       }
     }
   }

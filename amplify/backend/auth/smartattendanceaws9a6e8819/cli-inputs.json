@@ -1,10 +1,10 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "reactamplified8dd26acf_identitypool_8dd26acf",
-    "allowUnauthenticatedIdentities": true,
-    "resourceNameTruncated": "reacta8dd26acf",
-    "userPoolName": "reactamplified8dd26acf_userpool_8dd26acf",
+    "identityPoolName": "smartattendanceaws9a6e8819_identitypool_9a6e8819",
+    "allowUnauthenticatedIdentities": false,
+    "resourceNameTruncated": "smarta9a6e8819",
+    "userPoolName": "smartattendanceaws9a6e8819_userpool_9a6e8819",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -31,17 +31,12 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "reacta8dd26acf_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "smarta9a6e8819_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "8dd26acf",
-    "resourceName": "reactamplified8dd26acf8dd26acf",
+    "sharedId": "9a6e8819",
+    "resourceName": "smartattendanceaws9a6e8819",
     "authSelections": "identityPoolAndUserPool",
-    "useDefault": "manual",
-    "thirdPartyAuth": false,
-    "userPoolGroups": false,
-    "adminQueries": false,
-    "triggers": {},
-    "hostedUI": false,
+    "useDefault": "default",
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
