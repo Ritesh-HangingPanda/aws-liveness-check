@@ -1,7 +1,0 @@
-{
-  "dev": {
-    "configLevel": "project",
-    "useProfile": false,
-    "awsConfigFilePath": "/Users/mac/.amplify/awscloudformation/VkQrDgKWJ2"
-  }
-}
