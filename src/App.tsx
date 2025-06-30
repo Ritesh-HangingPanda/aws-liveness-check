@@ -22,21 +22,16 @@ declare global {
 }
 
 export default function App() {
-  const [loading, setLoading] = useState<boolean>(true);
-  const [livenessStatus, setLivenessStatus] = useState<{
-    checked: boolean;
-    isLive: boolean;
-    confidence?: number;
-  }>({ checked: false, isLive: false });
+  const [loading, setLoading] = useState(true);
+  const [livenessStatus, setLivenessStatus] = useState({ checked: false, isLive: false, confidence: 0 });
   const [sessionId, setSessionId] = useState<string | null>(null);
-  const [verificationComplete, setVerificationComplete] =
-    useState<boolean>(false);
-  const [userCancelled, setUserCancelled] = useState<boolean>(false);
+  const [verificationComplete, setVerificationComplete] = useState(false);
+  const [userCancelled, setUserCancelled] = useState(false);
 
   const fetchSession = async () => {
     setLoading(true);
     setVerificationComplete(false);
-    setLivenessStatus({ checked: false, isLive: false });
+    setLivenessStatus({ checked: false, isLive: false, confidence: 0 });
     setUserCancelled(false);
     try {
       const response = await createLivenessSession();
@@ -93,7 +88,7 @@ export default function App() {
       setVerificationComplete(true);
     } catch (error) {
       console.error("Error getting liveness result:", error);
-      setLivenessStatus({ checked: true, isLive: false });
+      setLivenessStatus({ checked: true, isLive: false, confidence: 0 });
       setVerificationComplete(true);
       // Send error message to React Native WebView
       if (window.ReactNativeWebView) {
@@ -114,9 +109,7 @@ export default function App() {
         {loading ? (
           <div className="flex flex-col items-center">
             <Loader size="large" />
-            <p className="mt-2 text-gray-600">
-              Initializing liveness detection...
-            </p>
+            <p className="mt-2 text-gray-600">Initializing liveness detection...</p>
           </div>
         ) : (
           <>
@@ -137,12 +130,12 @@ export default function App() {
                   onAnalysisComplete={handleAnalysisComplete}
                   onError={(error) => {
                     console.error("Liveness detector error:", error);
-                    setLivenessStatus({ checked: true, isLive: false });
+                    setLivenessStatus({ checked: true, isLive: false, confidence: 0 });
                     setVerificationComplete(true);
                   }}
                   onUserCancel={() => {
                     setUserCancelled(true);
-                    setLivenessStatus({ checked: true, isLive: false });
+                    setLivenessStatus({ checked: true, isLive: false, confidence: 0 });
                   }}
                 />
               </div>
