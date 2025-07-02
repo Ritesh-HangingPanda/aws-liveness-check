@@ -8,11 +8,10 @@ import {
 } from "./livenessSdk";
 import { Amplify } from "aws-amplify";
 import AwsConfig from "./aws-exports";
+import { useAuth } from "react-oidc-context";
 
-// Configure Amplify
 Amplify.configure(AwsConfig);
 
-// Extend Window interface to support ReactNativeWebView
 declare global {
   interface Window {
     ReactNativeWebView?: {
@@ -27,6 +26,7 @@ export default function App() {
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [verificationComplete, setVerificationComplete] = useState(false);
   const [userCancelled, setUserCancelled] = useState(false);
+  const auth = useAuth();
 
   const fetchSession = async () => {
     setLoading(true);
@@ -45,8 +45,16 @@ export default function App() {
   };
 
   useEffect(() => {
-    fetchSession();
-  }, []);
+    if (!auth.isLoading && !auth.isAuthenticated && !auth.error) {
+      auth.signinRedirect();
+    }
+  }, [auth.isLoading, auth.isAuthenticated, auth.error, auth]);
+
+  useEffect(() => {
+    if (auth.isAuthenticated) {
+      fetchSession();
+    }
+  }, [auth.isAuthenticated]);
 
   const handleAnalysisComplete = async (): Promise<void> => {
     try {
@@ -99,76 +107,82 @@ export default function App() {
     }
   };
 
-  return (
-    <div className="max-w-3xl mx-auto px-4 py-6 sm:px-6 lg:px-8 text-center h-dvh">
-      <h1 className="text-3xl font-bold text-gray-800">
-        Face Liveness Detection
-      </h1>
+  if (auth.isLoading) return <div>Loading...</div>;
+  if (auth.error) return <div>Error: {auth.error.message}</div>;
 
-      <ThemeProvider>
-        {loading ? (
-          <div className="flex flex-col items-center">
-            <Loader size="large" />
-            <p className="mt-2 text-gray-600">Initializing liveness detection...</p>
-          </div>
-        ) : (
-          <>
-            {!verificationComplete && !userCancelled && (
-              <div className="w-full flex flex-col items-center">
-                <Alert
-                  variation="info"
-                  isDismissible={false}
-                  hasIcon={true}
-                  className="mb-4 !bg-transparent text-yellow-800 border-yellow-300 max-w-xl !text-xs"
-                >
-                  Keep your face visible and in good light.
-                </Alert>
-                <FaceLivenessDetector
-                  key={sessionId}
-                  sessionId={sessionId || ""}
-                  region="us-east-1"
-                  onAnalysisComplete={handleAnalysisComplete}
-                  onError={(error) => {
-                    console.error("Liveness detector error:", error);
-                    setLivenessStatus({ checked: true, isLive: false, confidence: 0 });
-                    setVerificationComplete(true);
-                  }}
-                  onUserCancel={() => {
-                    setUserCancelled(true);
-                    setLivenessStatus({ checked: true, isLive: false, confidence: 0 });
-                  }}
-                />
-              </div>
-            )}
+  if (auth.isAuthenticated) {
+    return (
+      <div className="max-w-3xl mx-auto px-4 py-6 sm:px-6 lg:px-8 text-center h-dvh">
+        <h1 className="text-3xl font-bold text-gray-800">
+          Face Liveness Detection
+        </h1>
 
-            {(livenessStatus.checked || userCancelled) && (
-              <div className="grid place-items-center h-[20vh]">
-                <div className="mt-4">
-                  {livenessStatus.checked && (
-                    <Alert
-                      variation={livenessStatus.isLive ? "success" : "error"}
-                      isDismissible={false}
-                      hasIcon={true}
-                      className="p-4 text-lg"
-                    >
-                      {livenessStatus.isLive
-                        ? `🎉 You are live! Confidence: ${livenessStatus.confidence}%`
-                        : "❌ Sorry, you are not a live user."}
-                    </Alert>
-                  )}
-                  <Button
-                    variation="primary"
-                    className="!mt-10"
-                    onClick={fetchSession}
+        <ThemeProvider>
+          {loading ? (
+            <div className="flex flex-col items-center">
+              <Loader size="large" />
+              <p className="mt-2 text-gray-600">Initializing liveness detection...</p>
+            </div>
+          ) : (
+            <>
+              {!verificationComplete && !userCancelled && (
+                <div className="w-full flex flex-col items-center">
+                  <Alert
+                    variation="info"
+                    isDismissible={false}
+                    hasIcon={true}
+                    className="mb-4 !bg-transparent text-yellow-800 border-yellow-300 max-w-xl !text-xs"
                   >
-                    Try Again
-                  </Button>
+                    Keep your face visible and in good light.
+                  </Alert>
+                  <FaceLivenessDetector
+                    key={sessionId}
+                    sessionId={sessionId || ""}
+                    region="us-east-1"
+                    onAnalysisComplete={handleAnalysisComplete}
+                    onError={(error) => {
+                      console.error("Liveness detector error:", error);
+                      setLivenessStatus({ checked: true, isLive: false, confidence: 0 });
+                      setVerificationComplete(true);
+                    }}
+                    onUserCancel={() => {
+                      setUserCancelled(true);
+                      setLivenessStatus({ checked: true, isLive: false, confidence: 0 });
+                    }}
+                  />
                 </div>
-              </div>
-            )}
-          </>
-        )}
-      </ThemeProvider>
-    </div>
-  );
+              )}
+
+              {(livenessStatus.checked || userCancelled) && (
+                <div className="grid place-items-center h-[20vh]">
+                  <div className="mt-4">
+                    {livenessStatus.checked && (
+                      <Alert
+                        variation={livenessStatus.isLive ? "success" : "error"}
+                        isDismissible={false}
+                        hasIcon={true}
+                        className="p-4 text-lg"
+                      >
+                        {livenessStatus.isLive
+                          ? `🎉 You are live! Confidence: ${livenessStatus.confidence}%`
+                          : "❌ Sorry, you are not a live user."}
+                      </Alert>
+                    )}
+                    <Button
+                      variation="primary"
+                      className="!mt-10"
+                      onClick={fetchSession}
+                    >
+                      Try Again
+                    </Button>
+                  </div>
+                </div>
+              )}
+            </>
+          )}
+        </ThemeProvider>
+      </div>
+    );
+  }
+  return null;
 }
